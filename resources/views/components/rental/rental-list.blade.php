@@ -27,6 +27,7 @@
 							<th>User Name</th>
 							<th>Car Name</th>
 							<th>Booking Date</th>
+							<th>Total Days</th>
 							<th>Total Cost (BD)</th>
 							<th>Confirm Data</th>
 							<th>Action</th>
@@ -35,10 +36,11 @@
 					<tbody>
 						@forelse ($rentals as $key => $rental)
 							<tr>
-								<td>{{ $key + 1 }}</td>
+								<td>{{ getStrPad($key + 1) }}</td>
 								<td>{{ $rental->user->name }}</td>
 								<td>{{ $rental->car->name }}</td>
-								<td>{{ Carbon\Carbon::parse($rental->start_date)->format('d-M-Y') }} to {{ Carbon\Carbon::parse($rental->start_date)->format('d-M-Y') }}</td>
+								<td>{{ Carbon\Carbon::parse($rental->start_date)->format('d-M-Y') }} to {{ Carbon\Carbon::parse($rental->end_date)->format('d-M-Y') }}</td>
+								<td>{{ getStrPad(getNumberOfDayCounts($rental->start_date, $rental->end_date)) }} Day</td>
 								<td>{{ $rental->total_cost }} TK</td>
 								<td>{{ $rental->created_at->format('d-M-Y') }} / {{ $rental->created_at->format('h:i A') }}</td>
 								<td class="d-flex align-items-center gap-1">

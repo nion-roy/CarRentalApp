@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Car;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
     public function HomePage()
-    {
+    { 
         return view('pages.home-page');
     }
 
@@ -25,5 +26,11 @@ class PageController extends Controller
     public function ContactPage()
     {
         return view('pages.contact-page');
+    }
+
+
+    public function dashboardPage()
+    {
+        return view('pages.dashboard-page');
     }
 }

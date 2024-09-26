@@ -43,12 +43,20 @@
 							<li><a class="menu-item" href="{{ route('AboutPage') }}">About Us</a></li>
 							<li><a class="menu-item" href="{{ route('RentalPage') }}">Rentals</a></li>
 							<li><a class="menu-item" href="{{ route('ContactPage') }}">Contact Us</a></li>
-							
+
 						</ul>
 					</div>
 					<div class="de-flex-col">
 						<div class="menu_side_area">
-							<a href="{{ route('login') }}" class="btn-main">Sign In</a>
+							@if (Auth::check())
+								@if (Auth::user()->role == 'admin')
+									<a href="{{ route('dashboardPage') }}" class="btn-main">Dashboard</a>
+								@elseif (Auth::user()->role == 'customer')
+									<a href="{{ route('dashboardPage') }}" class="btn-main">Dashboard</a>
+								@endif
+							@else
+								<a href="{{ route('login') }}" class="btn-main">Sign In</a>
+							@endif
 							<span id="menu-btn"></span>
 						</div>
 					</div>

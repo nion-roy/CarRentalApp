@@ -49,22 +49,25 @@ class User extends Authenticatable
 
     public static function createUser($requestData)
     {
-        $user = new User();
-        $user->name = $requestData['name'];
-        $user->email = $requestData['email'];
-        $user->password = Hash::make($requestData['password']);
-        $user->role = $requestData['role'];
+        $user = self::create([
+            'name' => $requestData['name'],
+            'email' => $requestData['email'],
+            'password' => Hash::make($requestData['password']),
+            'role' => $requestData['role'],
+        ]);
+
         return $user;
     }
 
     public static function updateUser($id, $requestData)
     {
-        $user = self::find($id);
-        $user->name = $requestData['name'];
-        $user->email = $requestData['email'];
-        $user->password = Hash::make($requestData['password']);
-        $user->role = $requestData['role'];
-        $user->save();
+        $user =  self::findOrFail($id);
+        $user->update([
+            'name' => $requestData['name'],
+            'email' => $requestData['email'],
+            'password' => Hash::make($requestData['password']),
+            'role' => $requestData['role'],
+        ]);
 
         return $user;
     }

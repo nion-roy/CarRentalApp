@@ -10,6 +10,11 @@
 		<title>@yield('title') Car Rental</title>
 		<link rel="icon" href="{{ asset('frontend') }}/images/icon.png" type="image/gif" sizes="16x16">
 
+		<!-- Sweet Alert css -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.12.4/sweetalert2.min.css" />
+
+
+
 		<!-- CSS Files
 				================================================== -->
 		<link href="{{ asset('frontend') }}/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
@@ -58,6 +63,20 @@
 		<script src="{{ asset('frontend') }}/js/plugins.js"></script>
 		<script src="{{ asset('frontend') }}/js/designesia.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgiM7ogCAA2Y5pgSk2KXZfxF5S_1jsptA&amp;libraries=places&amp;callback=initPlaces" async="" defer=""></script>
+
+		<!-- Sweet Alert js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.12.4/sweetalert2.min.js"></script>
+
+		@include('sweetalert::alert')
+
+
+		<script>
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+		</script>
 
 	</body>
 

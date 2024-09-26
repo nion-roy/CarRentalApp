@@ -31,4 +31,9 @@ class RentalRepository implements RentalRepositoryInterface
     {
         return Rental::destroyRental($id);
     }
+
+    public function carBook(array $data)
+    {
+        return Rental::carBookRental($data);
+    }
 }

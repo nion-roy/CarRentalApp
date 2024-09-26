@@ -39,7 +39,7 @@
 
 						@forelse($cars as $key => $car)
 							<tr>
-								<td>{{ $key + 1 }}</td>
+								<td>{{ getStrPad($key + 1) }}</td>
 								<td> {{ $car->name }} </td>
 								<td>{{ $car->brand }}</td>
 								<td>{{ $car->model }}</td>

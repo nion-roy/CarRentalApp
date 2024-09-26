@@ -8,9 +8,16 @@ Route::get('/', [App\Http\Controllers\Frontend\PageController::class, 'HomePage'
 Route::get('about-us', [App\Http\Controllers\Frontend\PageController::class, 'AboutPage'])->name('AboutPage');
 Route::get('rentals', [App\Http\Controllers\Frontend\PageController::class, 'RentalPage'])->name('RentalPage');
 Route::get('contact-us', [App\Http\Controllers\Frontend\PageController::class, 'ContactPage'])->name('ContactPage');
+Route::post('car-book', [App\Http\Controllers\Frontend\RentalController::class, 'CarBookPage'])->name('CarBookPage');
 
 
 
+Route::middleware(['role:customer'])->group(function () {
+    Route::get('/customer/dashboard', [App\Http\Controllers\Frontend\PageController::class, 'dashboardPage'])->name('customer.dashboard');
+    Route::post('/customer/logout', [App\Http\Controllers\Frontend\PageController::class, 'logout'])->name('customer.logout');
+
+
+});
 
 
 Route::middleware(['role:admin'])->group(function () {
