@@ -1,0 +1,9 @@
+@extends('layouts.frontend.app')
+@section('main_content')
+	@include('components.frontend.header')
+	@include('components.frontend.booking')
+	@include('components.frontend.features')
+	@include('components.frontend.cars')
+	@include('components.frontend.timeline')
+	@include('components.frontend.news')
+@endsection

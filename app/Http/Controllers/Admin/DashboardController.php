@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Models\Car;
+use App\Models\User;
+use App\Http\Controllers\Controller;
+use App\Models\Rental;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+
+class DashboardController extends Controller
+{
+    public function dashboardPage()
+    {
+        $customers = User::where('role', 'customer')->latest()->get();
+        $car = Car::count();
+        $rentals = Rental::latest()->get(); 
+        return view('pages.dashboard.dashboard-page', compact('customers', 'car', 'rentals'));
+    }
+
+    public function logout()
+    {
+        Auth::guard('web')->logout();
+        Alert::success('Success', 'Your Account has been logged out');
+        return redirect()->route('login');
+    }
+}
