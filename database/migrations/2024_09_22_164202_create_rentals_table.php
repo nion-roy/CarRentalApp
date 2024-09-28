@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->decimal('total_cost', 8, 2);
-            $table->enum('status', [1, 2, 3, 4])->default(1)->comment('1 = Pending, 2 = Canceled, 3 = Approved, 4 = Delivered');
+            $table->enum('status', [1, 2, 3])->default(1)->comment('1 = Ongoing, 2 = Completed, 3 = Canceled');
             $table->timestamps();
         });
     }

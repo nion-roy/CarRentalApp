@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Car;
 use App\Models\User;
 use App\Models\Rental;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RentalRequest;
-use App\Models\Car;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Repositories\Interfaces\RentalRepositoryInterface;
 
 class RentalController extends Controller
@@ -24,7 +25,7 @@ class RentalController extends Controller
     public function index()
     {
         $rentals = $this->rentalInterface->getAll();
-        return view('pages.backend.dashboard.rental.list-page', compact('rentals'));
+        return view('pages.backend.rental.list-page', compact('rentals'));
     }
 
     /**
@@ -34,7 +35,7 @@ class RentalController extends Controller
     {
         $users = User::where('role', 'customer')->latest()->get();
         $cars = Car::latest()->get();
-        return view('pages.backend.dashboard.rental.create-page', compact('users', 'cars'));
+        return view('pages.backend.rental.create-page', compact('users', 'cars'));
     }
 
     /**
@@ -54,7 +55,7 @@ class RentalController extends Controller
         $rental = $this->rentalInterface->getById($rental->id);
         $users = User::where('role', 'customer')->latest()->get();
         $cars = Car::latest()->get();
-        return view('pages.backend.dashboard.rental.edit-page', compact('rental', 'users', 'cars'));
+        return view('pages.backend.rental.edit-page', compact('rental', 'users', 'cars'));
     }
 
     /**
@@ -81,6 +82,7 @@ class RentalController extends Controller
         $rental = $this->rentalInterface->getById($id);
         $rental->status = $request->status;
         $rental->save();
-        return redirect()->back()->withSuccess('You have updated rental status successfully');
+        Alert::success('Rental status updated successfully.');
+        return redirect()->back();
     }
 }

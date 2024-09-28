@@ -17,11 +17,6 @@ class PageController extends Controller
         return view('pages.frontend.about-page');
     }
 
-    public function RentalPage()
-    {
-        return view('pages.frontend.rental-page');
-    }
-
     public function BlogPage()
     {
         return view('pages.frontend.blog-page');

@@ -55,6 +55,20 @@
 				<div class="card-body">
 					<div class="d-flex align-items-end justify-content-between">
 						<div>
+							<h4 class="mb-2 text-success fw-bold">Total Available Cars </h4>
+							<h3 class="mb-0"> {{ $availableCar }}</h3>
+						</div>
+						<i class="fa fa-car text-success fa-3x"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6 col-xl-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="d-flex align-items-end justify-content-between">
+						<div>
 							<h4 class="mb-2 text-success fw-bold">Total Cars</h4>
 							<h3 class="mb-0"> {{ $car }}</h3>
 						</div>
@@ -103,13 +117,18 @@
 						<tr>
 							<td>{{ $key + 1 }}</td>
 							<td>{{ $rental->user->name }}</td>
-							<td>{{ $rental->car->name }}</td>
+							<td>
+								<span><strong>Car: </strong>{{ $rental->car->name }}</span> <br>
+								<span><strong>Brand: </strong>{{ $rental->car->brand }}</span>
+							</td>
 							<td>{{ Carbon\Carbon::parse($rental->start_date)->format('d-M-Y') }} to {{ Carbon\Carbon::parse($rental->start_date)->format('d-M-Y') }}</td>
 							<td>
-								@if ($rental->statsu == 1)
-									<span class="d-block bg-success px-2 py-1 text-white rounded">Active</span>
-								@else
-									<span class="d-block bg-danger px-2 py-1 text-white rounded">Cancel</span>
+								@if ($rental->status == 1)
+									<span class="badge rounded-pill bg-warning">Ongoing</span>
+								@elseif ($rental->status == 2)
+									<span class="badge rounded-pill bg-success">Completed</span>
+								@elseif ($rental->status == 3)
+									<span class="badge rounded-pill bg-danger">Canceled</span>
 								@endif
 							</td>
 						</tr>
@@ -138,7 +157,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					@forelse ($customers->take(5) as $key => $user)
+					@forelse ($customers->take(7) as $key => $user)
 						<tr>
 							<td>{{ $key + 1 }}</td>
 							<td>{{ $user->name }}</td>

@@ -26,7 +26,6 @@ class RentalRequest extends FormRequest
             'car' => ['required', 'integer'],
             'start_date' => ['required'],
             'end_date' => ['required'],
-            'total_cost' => ['required'],
         ];
     }
 }

@@ -32,6 +32,25 @@
 														<div class="text-danger">{{ $message }}</div>
 													@enderror
 												</div>
+
+
+												<div class="col-lg-6 mb20">
+													<h5>Address</h5>
+													<input type="text" name="email" id="email" class="form-control @error('email') is-invalid  @enderror" value="{{ auth()->user()->email }}" placeholder="Enter email" />
+													@error('email')
+														<div class="text-danger">{{ $message }}</div>
+													@enderror
+												</div>
+
+
+												<div class="col-lg-6 mb20">
+													<h5>Phone Number</h5>
+													<input type="text" name="email" id="email" class="form-control @error('email') is-invalid  @enderror" value="{{ auth()->user()->email }}" placeholder="Enter email" />
+													@error('email')
+														<div class="text-danger">{{ $message }}</div>
+													@enderror
+												</div>
+
 												<div class="col-lg-6 mb20">
 													<h5>New Password</h5>
 													<input type="Password" name="password" id="password" class="form-control @error('password') is-invalid  @enderror" placeholder="Enter password" />

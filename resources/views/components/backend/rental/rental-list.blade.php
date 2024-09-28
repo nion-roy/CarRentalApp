@@ -24,9 +24,9 @@
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>User Name</th>
-							<th>Car Name</th>
-							<th>Booking Date</th>
+							<th>Customer Name</th>
+							<th>Car Details</th>
+							<th>Rental Date</th>
 							<th>Total Days</th>
 							<th>Total Cost (BD)</th>
 							<th>Confirm Data</th>
@@ -39,7 +39,10 @@
 							<tr>
 								<td>{{ getStrPad($key + 1) }}</td>
 								<td>{{ $rental->user->name }}</td>
-								<td>{{ $rental->car->name }}</td>
+								<td>
+									<span><strong>Car:</strong> {{ $rental->car->name }}</span> <br>
+									<span><strong>Brand:</strong> {{ $rental->car->brand }}</span>
+								</td>
 								<td>{{ Carbon\Carbon::parse($rental->start_date)->format('d-M-Y') }} to {{ Carbon\Carbon::parse($rental->end_date)->format('d-M-Y') }}</td>
 								<td>{{ getStrPad(getNumberOfDayCounts($rental->start_date, $rental->end_date)) }} Day</td>
 								<td>{{ $rental->total_cost }} TK</td>
@@ -48,10 +51,9 @@
 									<form id="rental-status-form" action="{{ route('admin.rental-status', $rental->id) }}" method="post">
 										@csrf
 										<select name="status" id="status" class="form-select" onchange="this.form.submit()">
-											<option value="1" {{ $rental->status == 1 ? 'selected' : '' }}>Pending</option>
-											<option value="2" {{ $rental->status == 2 ? 'selected' : '' }}>Cancel</option>
-											<option value="3" {{ $rental->status == 3 ? 'selected' : '' }}>Approved</option>
-											<option value="4" {{ $rental->status == 4 ? 'selected' : '' }}>Delivered</option>
+											<option value="1" {{ $rental->status == 1 ? 'selected' : '' }}>Ongoing</option>
+											<option value="2" {{ $rental->status == 2 ? 'selected' : '' }}>Completed</option>
+											<option value="3" {{ $rental->status == 3 ? 'selected' : '' }}>Canceled</option>
 										</select>
 									</form>
 

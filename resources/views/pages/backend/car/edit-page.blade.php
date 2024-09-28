@@ -3,5 +3,5 @@
 @section('title', 'Car Edit')
 
 @section('main_content')
-	@include('components.backend..car.car-edit')
+	@include('components.backend.car.car-edit')
 @endsection

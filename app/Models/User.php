@@ -47,6 +47,11 @@ class User extends Authenticatable
     }
 
 
+    public function rentals()
+    {
+        return $this->hasMany(Rental::class);
+    }
+
     public static function createUser($requestData)
     {
         $user = self::create([

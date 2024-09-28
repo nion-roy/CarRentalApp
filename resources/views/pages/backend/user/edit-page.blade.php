@@ -3,5 +3,5 @@
 @section('title', 'Edit Customer')
 
 @section('main_content')
-	@include('components.backend..user.user-edit')
+	@include('components.backend.user.user-edit')
 @endsection

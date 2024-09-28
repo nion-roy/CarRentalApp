@@ -72,7 +72,7 @@
 
 
 
-			<li class="menu-item {{ Request::is('admin/customers*') ? 'active' : '' }}">
+			<li class="menu-item {{ Request::is('admin/customers*') || Request::is('admin/rental-histories*') ? 'active' : '' }}">
 				<a href="#menuCustomer" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
 					<span class="menu-icon"><i class="bx bx-user"></i></span>
 					<span class="menu-text"> Customer </span>

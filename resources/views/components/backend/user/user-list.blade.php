@@ -26,9 +26,11 @@
 							<th>#</th>
 							<th>Name</th>
 							<th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
 							<th>Role</th>
 							<th>Join Date</th>
-							<th>Rentals</th>
+							<th>Rental History</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -38,9 +40,11 @@
 								<td>{{ getStrPad($key + 1) }}</td>
 								<td>{{ $user->name }}</td>
 								<td>{{ $user->email }}</td>
+								<td>{{ $user->phone ?? 'N/A' }}</td>
+								<td>{{ $user->adderss ?? 'N/A' }}</td>
 								<td>{{ $user->role }}</td>
 								<td>{{ $user->created_at->format('d-M-Y') }} / {{ $user->created_at->format('h:i A') }}</td>
-								<td><a href="" class="btn btn-success waves-effect"><i class="fa fa-eye"></i></a></td>
+								<td><a href="{{ route('admin.rental-histories', $user->id) }}" class="btn btn-success waves-effect"><i class="fa fa-eye"></i></a></td>
 								<td class="d-flex align-items-center gap-1">
 									<a href="{{ route('admin.customers.edit', $user->id) }}" class="btn btn-success waves-effect"><i class="fa fa-edit"></i></a>
 									<form action="{{ route('admin.customers.destroy', $user->id) }}" method="post">

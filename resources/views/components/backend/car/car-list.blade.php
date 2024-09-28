@@ -27,7 +27,7 @@
 							<th>Name</th>
 							<th>Brand</th>
 							<th>Model</th>
-							<th>Year</th>
+							<th>Year of Manufacture</th>
 							<th>Car Type</th>
 							<th>Daily Rent (BD)</th>
 							<th>Availabilty</th>
@@ -48,9 +48,9 @@
 								<td>{{ $car->daily_rent_price }} TK</td>
 								<td>
 									@if ($car->availability == 1)
-										<span class="px-2 py-1 text-white bg-success rounded">Active</span>
+										<span class="px-2 py-1 text-white bg-success rounded">Available</span>
 									@else
-										<span class="px-2 py-1 text-white bg-danger rounded">Inactive</span>
+										<span class="px-2 py-1 text-white bg-danger rounded">Not Available</span>
 									@endif
 								</td>
 								<td>

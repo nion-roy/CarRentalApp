@@ -42,7 +42,9 @@ class DashboardController extends Controller
             $user = User::findOrFail(Auth::id());
             $user->name = $request->name;
             $user->email = $request->email;
-            $user->password = Hash::make($request->password);
+            if ($request->filled('password')) {
+                $user->password = Hash::make($request->password);
+            }
             $user->save();
 
             // Success message using alert

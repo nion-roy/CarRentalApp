@@ -66,7 +66,7 @@
 						<thead>
 							<tr>
 								<th scope="col"><span class="fs-12 text-gray">#</span></th>
-								<th scope="col"><span class="fs-12 text-gray">Car Name</span></th>
+								<th scope="col"><span class="fs-12 text-gray">Car Detials</span></th>
 								<th scope="col"><span class="fs-12 text-gray">Pick Up Date</span></th>
 								<th scope="col"><span class="fs-12 text-gray">Return Date</span></th>
 								<th scope="col"><span class="fs-12 text-gray">Total Days</span></th>
@@ -78,14 +78,19 @@
 							@forelse (getOrders()->take(5) as $key => $order)
 								<tr>
 									<td>{{ getStrPad($key + 1) }}</td>
-									<td><span class="d-block">{{ $order->car->name }}</span><span class="bold">{{ $order->car->brand }}</span></td>
+									<td>
+										<span><strong>Car: </strong> {{ $order->car->name }}</span> <br>
+										<span><strong>Brand: </strong> {{ $order->car->brand }}</span>
+									</td>
 									<td>{{ Carbon\Carbon::parse($order->start_date)->format('d-M-Y') }}</td>
 									<td>{{ Carbon\Carbon::parse($order->end_date)->format('d-M-Y') }}</td>
 									<td>{{ getStrPad(getNumberOfDayCounts($order->start_date, $order->end_date)) }}</td>
 									<td>BD {{ $order->total_cost }}</td>
 									<td>
 										@if ($order->status == 1)
-											<span class="badge rounded-pill bg-success">Approved</span>
+											<span class="badge rounded-pill bg-success">Ongoing</span>
+										@elseif ($order->status == 2)
+											<span class="badge rounded-pill bg-success">Completed</span>
 										@else
 											<span class="badge rounded-pill bg-danger">Cancel</span>
 										@endif

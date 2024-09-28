@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Car;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -48,5 +47,13 @@ class CarController extends Controller
         $cars = $query->latest('id')->paginate(12);
 
         return view('pages.frontend.car-page', compact('cars'));
+    }
+
+
+
+    public function CarDetail($id)
+    {
+        $car = Car::findOrFail($id);
+        return view('pages.frontend.car-detail', compact('car'));
     }
 }

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Interfaces\CustomerRepositoryInterface;
@@ -22,7 +20,7 @@ class CustomerController extends Controller
     public function index()
     {
         $users = $this->userInterface->getAll();
-        return view('pages.backend.dashboard.user.list-page', compact('users'));
+        return view('pages.backend.user.list-page', compact('users'));
     }
 
     /**
@@ -30,7 +28,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('pages.backend.dashboard.user.create-page');
+        return view('pages.backend.user.create-page');
     }
 
     /**
@@ -48,7 +46,7 @@ class CustomerController extends Controller
     public function edit($id)
     {
         $user = $this->userInterface->getById($id);
-        return view('pages.backend.dashboard.user.edit-page', compact('user'));
+        return view('pages.backend.user.edit-page', compact('user'));
     }
 
     /**
@@ -67,5 +65,11 @@ class CustomerController extends Controller
     {
         $this->userInterface->destroy($id);
         return redirect()->back();
+    }
+
+    public function rentalHistory($id)
+    {
+        $rentalHistories = $this->userInterface->getById($id);
+        return view('pages.backend.user.rental-history', compact('rentalHistories'));
     }
 }

@@ -41,7 +41,6 @@
 						<ul id="mainmenu">
 							<li><a class="menu-item" href="{{ route('HomePage') }}">Home</a></li>
 							<li><a class="menu-item" href="{{ route('AboutPage') }}">About Us</a></li>
-							<li><a class="menu-item" href="{{ route('RentalPage') }}">Rentals</a></li>
 							<li><a class="menu-item" href="{{ route('CarPage') }}">Cars</a></li>
 							<li><a class="menu-item" href="{{ route('BlogPage') }}">Blog</a></li>
 							<li><a class="menu-item" href="{{ route('ContactPage') }}">Contact Us</a></li>
@@ -51,7 +50,7 @@
 						<div class="menu_side_area">
 							@if (Auth::check())
 								@if (Auth::user()->role == 'admin')
-									<a href="{{ route('dashboardPage') }}" class="btn-main">Dashboard</a>
+									<a href="{{ route('admin.dashboard') }}" class="btn-main">Dashboard</a>
 								@elseif (Auth::user()->role == 'customer')
 									<a href="{{ route('customer.dashboard') }}" class="btn-main">Dashboard</a>
 								@endif

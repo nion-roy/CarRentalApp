@@ -70,15 +70,6 @@
 							@enderror
 						</div>
 
-
-						<div class="form-gorup col-md-6 mb-3">
-							<label for="total_cost" class="form-label">Total Cost<span class="text-danger">*</span></label>
-							<input type="number" min="0" name="total_cost" id="total_cost" class="form-control @error('total_cost') is-invalid @enderror" placeholder="Enter total cost" value="{{ $rental->total_cost }}">
-							@error('total_cost')
-								<div class="text-danger"> {{ $message }} </div>
-							@enderror
-						</div>
-
 					</div>
 
 					<div class="form-gorup">

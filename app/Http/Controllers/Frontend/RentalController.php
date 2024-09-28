@@ -40,22 +40,5 @@ class RentalController extends Controller
 
         Alert::success('Success', 'Order has been cancelled successfully');
         return redirect()->back();
-
-        // try {
-        //     $order = Rental::where('status', 1)->first();
-
-        //     if ($order->user_id != Auth::user()->id) {
-        //         Alert::error('Error', 'You cannot cancel this order');
-        //     }
-
-        //     $order->status = 0;
-        //     Alert::success('Success', 'Order has been cancelled successfully');
-
-        //     $order->save();
-        //     return redirect()->back();
-        // } catch (\Exception $e) {
-        //     Alert::error('Error', 'Failed to cancel the order');
-        //     return redirect()->back();
-        // }
     }
 }

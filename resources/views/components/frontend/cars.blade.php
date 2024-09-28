@@ -31,7 +31,7 @@
 											</div>
 										</div>
 										<div class="d-price">
-											Daily rate from <span>BD {{ $car->daily_rent_price }}</span> <a class="btn-main" href="{{ route('RentalPage') }}">Rent Now</a>
+											Daily rate from <span>BD {{ $car->daily_rent_price }}</span> <a class="btn-main" href="{{ route('CarDetail', $car->id) }}">">Rent Now</a>
 										</div>
 									</div>
 								</div>
@@ -74,7 +74,7 @@
 										</div>
 									</div>
 									<div class="d-price">
-										Daily rate from <span>BD {{ $car->daily_rent_price }}</span> <a class="btn-main" href="{{ route('RentalPage') }}">Rent Now</a>
+										Daily rate from <span>BD {{ $car->daily_rent_price }}</span> <a class="btn-main" href="{{ route('CarDetail', $car->id) }}">Rent Now</a>
 									</div>
 								</div>
 							</div>

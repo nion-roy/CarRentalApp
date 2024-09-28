@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Mail\NewOrder;
 use App\Mail\OrderInvoice;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -39,7 +40,7 @@ class Rental extends Model
             'car_id' => $requestData['car'],
             'start_date' => $requestData['start_date'],
             'end_date' => $requestData['end_date'],
-            'total_cost' => $requestData['total_cost'],
+            'total_cost' => self::calculateRentalCost($requestData['car'], $requestData['start_date'], $requestData['end_date']),
         ]);
 
         return $rental;
@@ -53,7 +54,7 @@ class Rental extends Model
             'car_id' => $requestData['car'],
             'start_date' => $requestData['start_date'],
             'end_date' => $requestData['end_date'],
-            'total_cost' => $requestData['total_cost'],
+            'total_cost' => self::calculateRentalCost($requestData['car'], $requestData['start_date'], $requestData['end_date']),
         ]);
 
         return $rental;
@@ -101,6 +102,9 @@ class Rental extends Model
 
         // Send an email notification to the user about the rental booking
         Mail::to(Auth::user()->email)->send(new OrderInvoice($rental));
+
+        // Send an email notification to the admin about the rental booking
+        // Mail::to('admin@gmail.com')->send(new NewOrder($rental));
 
         return ['status' => true, 'data' => $rental];
     }

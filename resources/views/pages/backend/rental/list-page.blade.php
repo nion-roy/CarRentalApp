@@ -3,5 +3,5 @@
 @section('title', 'All Rentals')
 
 @section('main_content')
-	@include('components.backend..rental.rental-list')
+	@include('components.backend.rental.rental-list')
 @endsection

@@ -15,8 +15,9 @@ class DashboardController extends Controller
     {
         $customers = User::where('role', 'customer')->latest()->get();
         $car = Car::count();
-        $rentals = Rental::latest()->get(); 
-        return view('pages.backend.dashboard.dashboard-page', compact('customers', 'car', 'rentals'));
+        $availableCar = Car::where('availability', 1)->count();
+        $rentals = Rental::latest()->get();
+        return view('pages.backend.dashboard-page', compact('customers', 'car', 'availableCar', 'rentals'));
     }
 
     public function logout()

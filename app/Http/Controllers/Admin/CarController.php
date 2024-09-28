@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CarRequest;
 use App\Models\Car;
 use App\Repositories\Interfaces\CarRepositoryInterface;
-use Illuminate\Http\Request;
 
 class CarController extends Controller
 {
@@ -23,7 +22,7 @@ class CarController extends Controller
     public function index()
     {
         $cars = $this->carInterface->getAll();
-        return view('pages.backend.dashboard.car.list-page', compact('cars'));
+        return view('pages.backend.car.list-page', compact('cars'));
     }
 
     /**
@@ -31,7 +30,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('pages.backend.dashboard.car.create-page');
+        return view('pages.backend.car.create-page');
     }
 
     /**
@@ -49,7 +48,7 @@ class CarController extends Controller
     public function edit(Car $car)
     {
         $car = $this->carInterface->getById($car->id);
-        return view('pages.backend.dashboard.car.edit-page', compact('car'));
+        return view('pages.backend.car.edit-page', compact('car'));
     }
 
     /**

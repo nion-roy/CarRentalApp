@@ -9,8 +9,8 @@ Route::get('about-us', [App\Http\Controllers\Frontend\PageController::class, 'Ab
 Route::get('blog', [App\Http\Controllers\Frontend\PageController::class, 'BlogPage'])->name('BlogPage');
 Route::get('contact-us', [App\Http\Controllers\Frontend\PageController::class, 'ContactPage'])->name('ContactPage');
 Route::get('cars', [App\Http\Controllers\Frontend\CarController::class, 'CarPage'])->name('CarPage');
+Route::get('car-details/{id}', [App\Http\Controllers\Frontend\CarController::class, 'CarDetail'])->name('CarDetail');
 Route::post('car-book', [App\Http\Controllers\Frontend\RentalController::class, 'CarBookPage'])->name('CarBookPage');
-Route::get('rental', [App\Http\Controllers\Frontend\PageController::class, 'RentalPage'])->name('RentalPage');
 
 
 
@@ -31,6 +31,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['role:admi
     Route::resource('rentals', App\Http\Controllers\Admin\RentalController::class);
     Route::post('rental-status/{id}', [App\Http\Controllers\Admin\RentalController::class, 'status'])->name('rental-status');
     Route::resource('customers', App\Http\Controllers\Admin\CustomerController::class);
+    Route::get('rental-histories/{id}', [App\Http\Controllers\Admin\CustomerController::class, 'rentalHistory'])->name('rental-histories');;
 
     Route::post('logout', [App\Http\Controllers\Admin\DashboardController::class, 'logout'])->name('logout');
 });
