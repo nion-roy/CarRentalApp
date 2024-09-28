@@ -104,7 +104,7 @@ class Rental extends Model
         Mail::to(Auth::user()->email)->send(new OrderInvoice($rental));
 
         // Send an email notification to the admin about the rental booking
-        // Mail::to('admin@gmail.com')->send(new NewOrder($rental));
+        Mail::to(Auth::user()->email)->send(new NewOrder($rental));
 
         return ['status' => true, 'data' => $rental];
     }

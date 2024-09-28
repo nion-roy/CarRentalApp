@@ -28,7 +28,7 @@
 								$order = App\Models\Rental::where('user_id', Auth::id())->where('status', 3)->orWhere('status', 4)->count();
 							@endphp
 							<span class="h1 mb0">{{ getStrPad($order) }}</span>
-							<span class="text-gray">Approved Orders</span>
+							<span class="text-gray">Canceled Orders</span>
 						</div>
 					</div>
 
@@ -38,10 +38,10 @@
 								<i class="fa id-color fa-2x fa-calendar-times-o"></i>
 							</div>
 							@php
-								$cancelOrder = App\Models\Rental::where('user_id', Auth::id())->where('status', 2)->count();
+								$order = App\Models\Rental::where('user_id', Auth::id())->where('status', 2)->count();
 							@endphp
-							<span class="h1 mb0">{{ getStrPad($cancelOrder) }}</span>
-							<span class="text-gray">Cancel Orders</span>
+							<span class="h1 mb0">{{ getStrPad($order) }}</span>
+							<span class="text-gray">Completed Orders</span>
 						</div>
 					</div>
 
@@ -51,10 +51,10 @@
 								<i class="fa id-color fa-2x fa-calendar-times-o"></i>
 							</div>
 							@php
-								$pendingOrder = App\Models\Rental::where('user_id', Auth::id())->where('status', 1)->count();
+								$order = App\Models\Rental::where('user_id', Auth::id())->where('status', 1)->count();
 							@endphp
-							<span class="h1 mb0">{{ getStrPad($pendingOrder) }}</span>
-							<span class="text-gray">Pending Orders</span>
+							<span class="h1 mb0">{{ getStrPad($order) }}</span>
+							<span class="text-gray">Ongoing Orders</span>
 						</div>
 					</div>
 				</div>
