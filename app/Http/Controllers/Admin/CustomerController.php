@@ -22,7 +22,7 @@ class CustomerController extends Controller
     public function index()
     {
         $users = $this->userInterface->getAll();
-        return view('pages.dashboard.user.list-page', compact('users'));
+        return view('pages.backend.dashboard.user.list-page', compact('users'));
     }
 
     /**
@@ -30,7 +30,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('pages.dashboard.user.create-page');
+        return view('pages.backend.dashboard.user.create-page');
     }
 
     /**
@@ -48,7 +48,7 @@ class CustomerController extends Controller
     public function edit($id)
     {
         $user = $this->userInterface->getById($id);
-        return view('pages.dashboard.user.edit-page', compact('user'));
+        return view('pages.backend.dashboard.user.edit-page', compact('user'));
     }
 
     /**

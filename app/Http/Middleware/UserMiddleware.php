@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserMiddleware
@@ -21,8 +20,7 @@ class UserMiddleware
 
         // Check if the user is logged in and if their role matches the required role
         if (!$user || $user->role !== $role) {
-            Alert::error('Error', 'You do not have access to this page');
-            return redirect('/login');
+            abort(404);
         }
 
         return $next($request);

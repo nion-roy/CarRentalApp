@@ -10,7 +10,7 @@
 		<ul class="topbar-menu d-flex align-items-center gap-4">
 
 			<li class="d-none d-md-inline-block">
-				<a class="nav-link" href="#" data-bs-toggle="fullscreen">
+				<a class="nav-link" href="javascript:void(0)" data-bs-toggle="fullscreen">
 					<i class="mdi mdi-fullscreen font-size-24"></i>
 				</a>
 			</li>
@@ -22,7 +22,7 @@
 			</li>
 
 			<li class="dropdown">
-				<a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+				<a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="false" aria-expanded="false">
 					<img src="{{ asset('backend') }}/images/users/avatar-4.jpg" alt="user-image" class="rounded-circle">
 					<span class="ms-1 d-none d-md-inline-block">{{ auth()->user()->name }} <i class="mdi mdi-chevron-down"></i> </span>
 				</a>

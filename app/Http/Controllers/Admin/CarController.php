@@ -23,7 +23,7 @@ class CarController extends Controller
     public function index()
     {
         $cars = $this->carInterface->getAll();
-        return view('pages.dashboard.car.list-page', compact('cars'));
+        return view('pages.backend.dashboard.car.list-page', compact('cars'));
     }
 
     /**
@@ -31,7 +31,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('pages.dashboard.car.create-page');
+        return view('pages.backend.dashboard.car.create-page');
     }
 
     /**
@@ -49,7 +49,7 @@ class CarController extends Controller
     public function edit(Car $car)
     {
         $car = $this->carInterface->getById($car->id);
-        return view('pages.dashboard.car.edit-page', compact('car'));
+        return view('pages.backend.dashboard.car.edit-page', compact('car'));
     }
 
     /**

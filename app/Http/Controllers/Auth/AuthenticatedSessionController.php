@@ -21,12 +21,12 @@ class AuthenticatedSessionController extends Controller
         if (Auth::check()) {
             if (Auth::user()->role == 'admin') {
                 return redirect()->route('dashboardPage');
-            } else {
-                return redirect()->route('dashboard');
+            } elseif (Auth::user()->role == 'customer') {
+                return redirect()->route('customer.dashboard');
             }
         }
 
-        return view('pages.auth.login-page');
+        return view('pages.frontend.auth.login-page');
     }
 
     /**
@@ -44,7 +44,8 @@ class AuthenticatedSessionController extends Controller
                     Alert::success('Success', 'Welcome! You have successfully logged in');
                     return redirect()->route('dashboardPage');
                 } else {
-                    return redirect()->route('dashboard');
+                    Alert::success('Success', 'Welcome! You have successfully logged in');
+                    return redirect()->route('customer.dashboard');
                 }
             } else {
                 Auth::logout();

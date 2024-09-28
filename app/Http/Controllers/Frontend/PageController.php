@@ -2,35 +2,33 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Car;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
     public function HomePage()
-    { 
-        return view('pages.home-page');
+    {
+        return view('pages.frontend.home-page');
     }
 
     public function AboutPage()
     {
-        return view('pages.about-page');
+        return view('pages.frontend.about-page');
     }
 
     public function RentalPage()
     {
-        return view('pages.rental-page');
+        return view('pages.frontend.rental-page');
+    }
+
+    public function BlogPage()
+    {
+        return view('pages.frontend.blog-page');
     }
 
     public function ContactPage()
     {
-        return view('pages.contact-page');
-    }
-
-
-    public function dashboardPage()
-    {
-        return view('pages.dashboard-page');
+        return view('pages.frontend.contact-page');
     }
 }

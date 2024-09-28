@@ -43,7 +43,6 @@ class OrderInvoice extends Mailable
             with: [
                 'rental' => $this->rental,
                 'user' => $this->rental->user,
-                'car' => $this->rental->car,
             ]
         );
     }

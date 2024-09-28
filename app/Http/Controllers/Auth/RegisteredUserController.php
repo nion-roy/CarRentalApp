@@ -20,7 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('pages.auth.register');
+        return view('pages.frontend.auth.register');
     }
 
     /**
@@ -47,7 +47,7 @@ class RegisteredUserController extends Controller
 
         Auth::logout();
 
-        Alert::success('Success', 'Registration was successfully registered');
+        Alert::success('Success', 'Your account registration successfully');
         return redirect()->route('login');
     }
 }

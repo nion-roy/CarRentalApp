@@ -11,12 +11,12 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class DashboardController extends Controller
 {
-    public function dashboardPage()
+    public function dashboard()
     {
         $customers = User::where('role', 'customer')->latest()->get();
         $car = Car::count();
         $rentals = Rental::latest()->get(); 
-        return view('pages.dashboard.dashboard-page', compact('customers', 'car', 'rentals'));
+        return view('pages.backend.dashboard.dashboard-page', compact('customers', 'car', 'rentals'));
     }
 
     public function logout()

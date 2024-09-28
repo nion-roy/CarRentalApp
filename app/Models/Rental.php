@@ -70,6 +70,10 @@ class Rental extends Model
 
     public static function carBookRental($requestData)
     {
+        if (!Auth::user()) {
+            return ['status' => false, 'message' => 'Please login and try again'];
+        }
+
         $carID = $requestData['car'];
         $startDate = Carbon::parse($requestData['pick_up_date']);
         $endDate = Carbon::parse($requestData['return_date']);
@@ -120,5 +124,21 @@ class Rental extends Model
         $totalCost = $numberOfDays * $dailyRentPrice;
 
         return $totalCost;
+    }
+
+
+
+    public static function rentalStatus($id)
+    {
+        $order = self::findOrFail($id);
+
+        if ($order->user_id != Auth::user()->id) {
+            return ['status' => false, 'message' => 'You cannot cancel this order'];
+        }
+
+        $order->status = 2;
+
+        $order->update();
+        return ['status' => true, 'message' => 'Order has been cancelled successfully'];
     }
 }

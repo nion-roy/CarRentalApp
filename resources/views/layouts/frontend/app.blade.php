@@ -7,13 +7,11 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-		<title>@yield('title') Car Rental</title>
+		<title>@yield('title') Car Rentaly</title>
 		<link rel="icon" href="{{ asset('frontend') }}/images/icon.png" type="image/gif" sizes="16x16">
 
 		<!-- Sweet Alert css -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.12.4/sweetalert2.min.css" />
-
-
 
 		<!-- CSS Files
 				================================================== -->
@@ -37,7 +35,7 @@
 		<div id="wrapper">
 
 			<!-- page preloader begin -->
-			<div id="de-preloader"></div>
+			<div id="de-preloader" class="d-none"></div>
 			<!-- page preloader close -->
 
 			<!-- header begin -->
@@ -52,7 +50,7 @@
 
 			</div>
 			<!-- content close -->
-			<a href="#" id="back-to-top"></a>
+			<a href="javascript:void(0)" id="back-to-top"></a>
 
 			<!-- footer begin -->
 			@include('components.frontend.footer')
@@ -60,6 +58,7 @@
 		</div>
 		<!-- Javascript Files
 				================================================== -->
+		<script src="{{ asset('frontend') }}/js/config.js"></script>
 		<script src="{{ asset('frontend') }}/js/plugins.js"></script>
 		<script src="{{ asset('frontend') }}/js/designesia.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgiM7ogCAA2Y5pgSk2KXZfxF5S_1jsptA&amp;libraries=places&amp;callback=initPlaces" async="" defer=""></script>
@@ -69,7 +68,6 @@
 
 		@include('sweetalert::alert')
 
-
 		<script>
 			$.ajaxSetup({
 				headers: {
@@ -77,6 +75,8 @@
 				}
 			});
 		</script>
+
+		@stack('js')
 
 	</body>
 

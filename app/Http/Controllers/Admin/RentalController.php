@@ -24,7 +24,7 @@ class RentalController extends Controller
     public function index()
     {
         $rentals = $this->rentalInterface->getAll();
-        return view('pages.dashboard.rental.list-page', compact('rentals'));
+        return view('pages.backend.dashboard.rental.list-page', compact('rentals'));
     }
 
     /**
@@ -34,7 +34,7 @@ class RentalController extends Controller
     {
         $users = User::where('role', 'customer')->latest()->get();
         $cars = Car::latest()->get();
-        return view('pages.dashboard.rental.create-page', compact('users', 'cars'));
+        return view('pages.backend.dashboard.rental.create-page', compact('users', 'cars'));
     }
 
     /**
@@ -54,7 +54,7 @@ class RentalController extends Controller
         $rental = $this->rentalInterface->getById($rental->id);
         $users = User::where('role', 'customer')->latest()->get();
         $cars = Car::latest()->get();
-        return view('pages.dashboard.rental.edit-page', compact('rental', 'users', 'cars'));
+        return view('pages.backend.dashboard.rental.edit-page', compact('rental', 'users', 'cars'));
     }
 
     /**
@@ -73,5 +73,14 @@ class RentalController extends Controller
     {
         $this->rentalInterface->destroy($rental->id);
         return redirect()->back()->withSuccess('You have deleted rental successfully');
+    }
+
+
+    public function status(Request $request, $id)
+    {
+        $rental = $this->rentalInterface->getById($id);
+        $rental->status = $request->status;
+        $rental->save();
+        return redirect()->back()->withSuccess('You have updated rental status successfully');
     }
 }

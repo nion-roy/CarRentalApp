@@ -3,19 +3,19 @@
 		<div class="container">
 			<div class="topbar-left xs-hide">
 				<div class="topbar-widget">
-					<div class="topbar-widget"><a href="#"><i class="fa fa-phone"></i>+208 333 9296</a></div>
-					<div class="topbar-widget"><a href="#"><i class="fa fa-envelope"></i>contact@rentaly.com</a></div>
-					<div class="topbar-widget"><a href="#"><i class="fa fa-clock-o"></i>Mon - Fri 08.00 - 18.00</a></div>
+					<div class="topbar-widget"><a href="javascript:void(0)"><i class="fa fa-phone"></i>+8801761-115624</a></div>
+					<div class="topbar-widget"><a href="javascript:void(0)"><i class="fa fa-envelope"></i>nion.roy22@gmail.com</a></div>
+					<div class="topbar-widget"><a href="javascript:void(0)"><i class="fa fa-clock-o"></i>Sat - Thu 08.00 AM - 10.00 PM</a></div>
 				</div>
 			</div>
 
 			<div class="topbar-right">
 				<div class="social-icons">
-					<a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-					<a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-					<a href="#"><i class="fa fa-youtube fa-lg"></i></a>
-					<a href="#"><i class="fa fa-pinterest fa-lg"></i></a>
-					<a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+					<a href="javascript:void(0)"><i class="fa fa-facebook fa-lg"></i></a>
+					<a href="javascript:void(0)"><i class="fa fa-twitter fa-lg"></i></a>
+					<a href="javascript:void(0)"><i class="fa fa-youtube fa-lg"></i></a>
+					<a href="javascript:void(0)"><i class="fa fa-pinterest fa-lg"></i></a>
+					<a href="javascript:void(0)"><i class="fa fa-instagram fa-lg"></i></a>
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -42,8 +42,9 @@
 							<li><a class="menu-item" href="{{ route('HomePage') }}">Home</a></li>
 							<li><a class="menu-item" href="{{ route('AboutPage') }}">About Us</a></li>
 							<li><a class="menu-item" href="{{ route('RentalPage') }}">Rentals</a></li>
+							<li><a class="menu-item" href="{{ route('CarPage') }}">Cars</a></li>
+							<li><a class="menu-item" href="{{ route('BlogPage') }}">Blog</a></li>
 							<li><a class="menu-item" href="{{ route('ContactPage') }}">Contact Us</a></li>
-
 						</ul>
 					</div>
 					<div class="de-flex-col">
@@ -52,7 +53,7 @@
 								@if (Auth::user()->role == 'admin')
 									<a href="{{ route('dashboardPage') }}" class="btn-main">Dashboard</a>
 								@elseif (Auth::user()->role == 'customer')
-									<a href="{{ route('dashboardPage') }}" class="btn-main">Dashboard</a>
+									<a href="{{ route('customer.dashboard') }}" class="btn-main">Dashboard</a>
 								@endif
 							@else
 								<a href="{{ route('login') }}" class="btn-main">Sign In</a>

@@ -2,10 +2,10 @@
 	<!-- Brand Logo -->
 	<div class="logo-box">
 		<!-- Brand Logo Light -->
-		<a class='logo-light' href='{{ route('dashboardPage') }}'>
-			<h3 class='text-white m-0 logo-lg'><i class="fa fa-cab me-2"></i>Car Rental</h3>
+		<a class='logo-light' href='{{ route('admin.dashboard') }}'>
+			<h3 class='text-white m-0 logo-lg'><i class="fa fa-cab me-2"></i>Car Rentaly</h3>
 		</a>
-		<a class='logo-light' href='{{ route('dashboardPage') }}'>
+		<a class='logo-light' href='{{ route('admin.dashboard') }}'>
 			<h3 class='text-white m-0 logo-sm'><i class="fa fa-cab"></i></h3>
 		</a>
 	</div>
@@ -17,7 +17,7 @@
 			<li class="menu-title">Menu</li>
 
 			<li class="menu-item">
-				<a class='menu-link waves-effect waves-light' href='{{ route('dashboardPage') }}'>
+				<a class='menu-link waves-effect waves-light' href='{{ route('admin.dashboard') }}'>
 					<span class="menu-icon"><i class="bx bx-home-smile"></i></span>
 					<span class="menu-text"> Dashboards </span>
 				</a>
@@ -33,12 +33,12 @@
 				<div class="collapse" id="menuCar">
 					<ul class="sub-menu">
 						<li class="menu-item">
-							<a class='menu-link' href='{{ route('cars.index') }}'>
+							<a class='menu-link' href='{{ route('admin.cars.index') }}'>
 								<span class="menu-text">All Car</span>
 							</a>
 						</li>
 						<li class="menu-item">
-							<a class='menu-link' href='{{ route('cars.create') }}'>
+							<a class='menu-link' href='{{ route('admin.cars.create') }}'>
 								<span class="menu-text">Add New Car</span>
 							</a>
 						</li>
@@ -57,12 +57,12 @@
 				<div class="collapse" id="menuRental">
 					<ul class="sub-menu">
 						<li class="menu-item">
-							<a class='menu-link' href='{{ route('rentals.index') }}'>
+							<a class='menu-link' href='{{ route('admin.rentals.index') }}'>
 								<span class="menu-text">All Rental</span>
 							</a>
 						</li>
 						<li class="menu-item">
-							<a class='menu-link' href='{{ route('rentals.create') }}'>
+							<a class='menu-link' href='{{ route('admin.rentals.create') }}'>
 								<span class="menu-text">Add New Rental</span>
 							</a>
 						</li>
@@ -81,12 +81,12 @@
 				<div class="collapse" id="menuCustomer">
 					<ul class="sub-menu">
 						<li class="menu-item">
-							<a class='menu-link' href='{{ route('customers.index') }}'>
+							<a class='menu-link' href='{{ route('admin.customers.index') }}'>
 								<span class="menu-text">All Customer</span>
 							</a>
 						</li>
 						<li class="menu-item">
-							<a class='menu-link' href='{{ route('customers.create') }}'>
+							<a class='menu-link' href='{{ route('admin.customers.create') }}'>
 								<span class="menu-text">Add New Customer</span>
 							</a>
 						</li>

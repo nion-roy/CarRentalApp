@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -82,7 +83,24 @@ if (!function_exists('getNumberOfDayCounts')) {
 if (!function_exists('getCars')) {
     function getCars()
     {
-        return App\Models\Car::where('availability', 1)->latest('id')->get();
+        return App\Models\Car::where('availability', 1)->latest('id')->paginate(9);
     }
 }
 // Get Cars To Database
+
+// Get Orders To Database
+if (!function_exists('getOrders')) {
+    function getOrders()
+    {
+        return App\Models\Rental::where('user_id', Auth::id())->latest('id')->get();
+    }
+}
+// Get Orders To Database
+
+
+// Assuming getCars() is a helper or part of a controller method
+function getCarTypes()
+{
+    // Group cars by 'car_type' and return
+    return \App\Models\Car::where('availability', 1)->groupBy('car_type')->get();
+}

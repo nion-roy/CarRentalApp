@@ -8,7 +8,7 @@
 				<h1>Explore the world with comfortable car</h1>
 				<p class="lead">Embark on unforgettable adventures and discover the world in unparalleled comfort and style with our fleet of exceptionally comfortable cars.</p>
 
-				<a class="btn-main" href="#">Choose a Car</a>&nbsp;&nbsp;&nbsp;<a class="btn-main btn-black" href="#">Get the App</a>
+				<a class="btn-main" href="{{ route('CarPage') }}">Choose a Car</a>&nbsp;&nbsp;&nbsp;<a class="btn-main btn-black" href="javascript:void(0)">Get the App</a>
 			</div>
 
 			<div class="col-lg-6">

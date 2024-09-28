@@ -15,4 +15,5 @@ interface RentalRepositoryInterface
     public function destroy(int $id);
 
     public function carBook(array $data);
+    public function rentalStatus(int $id);
 }

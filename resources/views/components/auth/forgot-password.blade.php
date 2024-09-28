@@ -4,12 +4,12 @@
 			<div class="row align-items-center">
 				<div class="col-lg-5 offset-lg-4">
 					<div class="padding40 rounded-3 shadow-soft border" data-bgcolor="#ffffff">
-						<h4>Login</h4>
+						<h4>Forget Password</h4>
 						<div class="spacer-10"></div>
 						<form id="form_login" class="form-border" method="post" action="{{ route('password.email') }}">
 							@csrf
 							<div class="field-set mb-2">
-								<input type="text" class="form-control m-0 @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter email address" />
+								<input type="text" class="form-control m-0 @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter email address" value="{{ old('email') }}" />
 								@error('email')
 									<div class="text-danger">{{ $message }}</div>
 								@enderror

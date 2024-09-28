@@ -36,4 +36,9 @@ class RentalRepository implements RentalRepositoryInterface
     {
         return Rental::carBookRental($data);
     }
+
+    public function rentalStatus(int $id)
+    {
+        return Rental::rentalStatus($id);
+    }
 }

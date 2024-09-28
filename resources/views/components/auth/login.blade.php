@@ -9,7 +9,7 @@
 						<form id="form_login" class="form-border" method="post" action="{{ route('login') }}">
 							@csrf
 							<div class="field-set mb-2">
-								<input type="text" class="form-control m-0 @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter email address" />
+								<input type="text" class="form-control m-0 @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter email address" value="{{ old('email') }}"/>
 								@error('email')
 									<div class="text-danger">{{ $message }}</div>
 								@enderror
@@ -20,7 +20,7 @@
 									<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
-							<a href="{{ route('password.request') }}">Forget Password</a>
+							<a class="text-end d-block" href="{{ route('password.request') }}">Forget Password?</a>
 							<div id="submit" class="mt-2">
 								<input type="submit" id="send_message" value="Sign In" class="btn-main btn-fullwidth rounded-3" />
 							</div>

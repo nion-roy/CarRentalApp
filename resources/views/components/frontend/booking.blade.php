@@ -43,13 +43,21 @@
 
 <script>
 	function carBookForm() {
+		// Show loader when the form is submitted
+		showLoader();
+
 		const carSelect = document.getElementById('car');
 		const pickUpDate = document.getElementById('pick_up_date').value;
 		const returnDate = document.getElementById('return_date').value;
 
+		// Get the selected car's name
 		const selectedCar = carSelect.options[carSelect.selectedIndex].text;
 
+		// Check if all fields are filled
 		if (!selectedCar || !pickUpDate || !returnDate) {
+			// Hide loader if validation fails
+			hideLoader();
+
 			Swal.fire({
 				title: 'Error!',
 				text: 'Please fill all fields',
@@ -59,18 +67,23 @@
 			return;
 		}
 
+		// Prepare the data to send in the AJAX request
 		const data = {
 			car: carSelect.value,
 			pick_up_date: pickUpDate,
 			return_date: returnDate
 		};
 
+		// Perform the AJAX request
 		$.ajax({
-			type: "post",
+			type: "POST",
 			url: "car-book",
 			data: data,
 			success: function(response) {
-				console.log(response);
+				// Hide loader once the request is successful
+				hideLoader();
+
+				// Display success message
 				Swal.fire({
 					title: 'Success!',
 					text: 'Car booked successfully!',
@@ -79,6 +92,10 @@
 				});
 			},
 			error: function(xhr) {
+				// Hide loader in case of an error
+				hideLoader();
+
+				// Display an appropriate error message
 				if (xhr.status === 400) {
 					Swal.fire({
 						title: 'Error!',

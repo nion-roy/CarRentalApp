@@ -9,13 +9,13 @@
 						<form id="form_register" class="form-border" method="post" action="{{ route('register') }}">
 							@csrf
 							<div class="field-set mb-2">
-								<input type="text" class="form-control m-0 @error('name') is-invalid @enderror" id="name" name="name" placeholder="Enter full name" />
+								<input type="text" class="form-control m-0 @error('name') is-invalid @enderror" id="name" name="name" placeholder="Enter full name" value="{{ old('name') }}"/>
 								@error('name')
 									<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
 							<div class="field-set mb-2">
-								<input type="text" class="form-control m-0 @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter email address" />
+								<input type="text" class="form-control m-0 @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter email address" value="{{ old('email') }}" />
 								@error('email')
 									<div class="text-danger">{{ $message }}</div>
 								@enderror
