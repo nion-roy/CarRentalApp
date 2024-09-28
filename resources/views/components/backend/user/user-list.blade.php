@@ -41,7 +41,7 @@
 								<td>{{ $user->name }}</td>
 								<td>{{ $user->email }}</td>
 								<td>{{ $user->phone ?? 'N/A' }}</td>
-								<td>{{ $user->adderss ?? 'N/A' }}</td>
+								<td>{{ $user->address ?? 'N/A' }}</td>
 								<td>{{ $user->role }}</td>
 								<td>{{ $user->created_at->format('d-M-Y') }} / {{ $user->created_at->format('h:i A') }}</td>
 								<td><a href="{{ route('admin.rental-histories', $user->id) }}" class="btn btn-success waves-effect"><i class="fa fa-eye"></i></a></td>
