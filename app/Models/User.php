@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'phone'
     ];
 
     /**
@@ -59,6 +61,8 @@ class User extends Authenticatable
             'email' => $requestData['email'],
             'password' => Hash::make($requestData['password']),
             'role' => $requestData['role'],
+            'address' => $requestData['address'],
+            'phone' => $requestData['phone'],
         ]);
 
         return $user;
@@ -72,6 +76,8 @@ class User extends Authenticatable
             'email' => $requestData['email'],
             'password' => Hash::make($requestData['password']),
             'role' => $requestData['role'],
+            'address' => $requestData['address'],
+            'phone' => $requestData['phone'],
         ]);
 
         return $user;

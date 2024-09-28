@@ -44,6 +44,22 @@
 						</div>
 
 						<div class="form-gorup col-md-6 mb-3">
+							<label for="address" class="form-label">Customer Address<span class="text-danger">*</span></label>
+							<input type="text" name="address" id="address" class="form-control @error('address') is-invalid @enderror" placeholder="Enter customer address" value="{{ old('address') }}">
+							@error('address')
+								<div class="text-danger"> {{ $message }} </div>
+							@enderror
+						</div>
+
+						<div class="form-gorup col-md-6 mb-3">
+							<label for="phone" class="form-label">Customer Phone Number<span class="text-danger">*</span></label>
+							<input type="text" name="phone" id="phone" class="form-control @error('phone') is-invalid @enderror" placeholder="Enter customer phone" value="{{ old('phone') }}">
+							@error('phone')
+								<div class="text-danger"> {{ $message }} </div>
+							@enderror
+						</div>
+
+						<div class="form-gorup col-md-6 mb-3">
 							<label for="password" class="form-label">Customer Account Password<span class="text-danger">*</span></label>
 							<input type="text" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Enter customer account password" value="{{ old('password') }}">
 							@error('password')

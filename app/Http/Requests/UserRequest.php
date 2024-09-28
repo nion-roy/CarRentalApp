@@ -26,7 +26,9 @@ class UserRequest extends FormRequest
             'name' => ['required', 'string'],
             'email' => ['required', 'email', Rule::unique('users')->ignore($this->route('customer'))],
             'password' => ['required', 'min:8'],
-            'role' => ['required', 'string']
+            'role' => ['required', 'string'],
+            'address' => ['nullable', 'string'],
+            'phone' => ['nullable', Rule::unique('users')->ignore($this->route('customer'))],
         ];
     }
 }
